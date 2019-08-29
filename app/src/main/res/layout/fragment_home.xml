@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/gover"
+        android:layout_marginTop="56dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+    </View>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#77000000"
+        android:layout_marginTop="56dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+
+    </View>
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_nopic" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dynoregular"
+                android:text="Erzaldi Rosman"
+                android:textColor="#fff"
+                android:textSize="20dp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gubernur"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Home Page"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
