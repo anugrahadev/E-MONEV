@@ -4,7 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Home">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
@@ -70,13 +80,87 @@
 
 
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Home Page"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view2"
+            android:layout_margin="24dp"
+            android:background="@drawable/bg_layout_white"
+
+            android:padding="24dp">
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_marginRight="16dp"
+                    android:text="RPJMD" />
+
+                <TextView android:text="1" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_marginRight="16dp"
+                    android:text="Renstra" />
+
+                <TextView android:text="188" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_marginRight="16dp"
+                    android:text="Program" />
+
+                <TextView android:text="Meningkatnya kesempatan pendidikan\n bagi masyarakat" />
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_marginRight="16dp"
+                    android:text="Kegiatan" />
+
+                <TextView android:text="Pemberian Beasiswa Siswa SMK" />
+
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_marginRight="16dp"
+                    android:text="Pagu" />
+
+                <TextView android:text="1400000000" />
+
+
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_marginRight="16dp"
+                    android:text="Target" />
+
+                <TextView android:text="87%" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_marginRight="16dp"
+                    android:text="Capaian" />
+
+                <TextView android:text="97%" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
