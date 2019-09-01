@@ -12,7 +12,8 @@
         android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp">
 
 
     <View
@@ -82,82 +83,125 @@
     </LinearLayout>
 
 
-
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/view2"
-            android:layout_margin="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="100dp"
             android:background="@drawable/bg_layout_white"
-
             android:padding="24dp">
 
-            <TableRow android:layout_marginTop="4dp">
+            <TableRow android:background="#ECECEC">
 
                 <TextView
-                    android:layout_marginRight="16dp"
-                    android:text="RPJMD" />
+                    android:width="70dp"
+                    android:paddingTop="4dp"
+                    android:text="ID"
+                    android:textAlignment="center"
+                    android:textSize="12dp" />
 
-                <TextView android:text="1" />
+                <TextView
+                    android:height="40dp"
+                    android:text="RPJMD, Renstra, \nProgram, Kegiatan"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:paddingLeft="14dp"
+                    android:text="Capaian\n/Target"
+                    android:textSize="12dp" />
             </TableRow>
 
-            <TableRow android:layout_marginTop="4dp">
+            <TableRow>
 
                 <TextView
-                    android:layout_marginRight="16dp"
-                    android:text="Renstra" />
+                    android:width="70dp"
+                    android:gravity="center"
+                    android:text="26"
+                    android:textAlignment="center"
+                    android:textSize="12dp" />
 
-                <TextView android:text="188" />
+                <TextView
+                    android:width="160dp"
+                    android:height="80dp"
+                    android:gravity="center"
+                    android:text="[Sasaran RPJMD] Meningkatnya kesempatan pendidikan bagi masyarakat"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:paddingLeft="14dp"
+                    android:text="90% / 88 %"
+                    android:textSize="12dp" />
             </TableRow>
 
-            <TableRow android:layout_marginTop="4dp">
+            <TableRow>
 
                 <TextView
-                    android:layout_marginRight="16dp"
-                    android:text="Program" />
+                    android:width="70dp"
+                    android:gravity="center"
+                    android:text="26 - 188"
+                    android:textAlignment="center"
+                    android:textSize="12dp" />
 
-                <TextView android:text="Meningkatnya kesempatan pendidikan\n bagi masyarakat" />
+                <TextView
+                    android:width="160dp"
+                    android:height="80dp"
+                    android:gravity="center"
+                    android:text="[Sasaran Renstra] Peningkatan Relevansi pendidikan bidang SMK bidang pertanian, perkebunan dan peternakan"
+                    android:textSize="12dp" />
 
+                <TextView
+                    android:paddingLeft="14dp"
+                    android:text="80% / 83 %"
+                    android:textSize="12dp" />
             </TableRow>
 
-            <TableRow android:layout_marginTop="4dp">
+            <TableRow>
 
                 <TextView
-                    android:layout_marginRight="16dp"
-                    android:text="Kegiatan" />
+                    android:width="70dp"
+                    android:gravity="center"
+                    android:text="26 - 188 - 614"
+                    android:textAlignment="center"
+                    android:textSize="12dp" />
 
-                <TextView android:text="Pemberian Beasiswa Siswa SMK" />
+                <TextView
+                    android:width="160dp"
+                    android:height="80dp"
+                    android:gravity="center"
+                    android:text="[Renja Program] Program peningkatan dan Pengembangan pelayanan pendidikan kejuruan"
+                    android:textSize="12dp" />
 
-
+                <TextView
+                    android:paddingLeft="14dp"
+                    android:text="95% / 83 %"
+                    android:textSize="12dp" />
             </TableRow>
 
-            <TableRow android:layout_marginTop="4dp">
+            <TableRow>
 
                 <TextView
-                    android:layout_marginRight="16dp"
-                    android:text="Pagu" />
-
-                <TextView android:text="1400000000" />
-
-
-            </TableRow>
-
-            <TableRow android:layout_marginTop="4dp">
+                    android:width="70dp"
+                    android:gravity="center"
+                    android:text="26 - 188 - 614 - 4262"
+                    android:textAlignment="center"
+                    android:textSize="12dp" />
 
                 <TextView
-                    android:layout_marginRight="16dp"
-                    android:text="Target" />
-
-                <TextView android:text="87%" />
-            </TableRow>
-
-            <TableRow android:layout_marginTop="4dp">
+                    android:width="160dp"
+                    android:height="80dp"
+                    android:gravity="center"
+                    android:text="[Sasaran Renstra] Pemberian beasiswa siswa SMK"
+                    android:textSize="12dp" />
 
                 <TextView
-                    android:layout_marginRight="16dp"
-                    android:text="Capaian" />
-
-                <TextView android:text="97%" />
+                    android:paddingLeft="14dp"
+                    android:text="90% / 88 %"
+                    android:textSize="12dp" />
             </TableRow>
         </TableLayout>
     </RelativeLayout>
