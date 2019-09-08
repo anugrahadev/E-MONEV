@@ -1,210 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Home">
-
     <ScrollView
+        android:scrollbars="none"
+        android:layout_marginTop="56dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp">
 
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/gover"
-        android:layout_marginTop="56dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-    </View>
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="#77000000"
-        android:layout_marginTop="56dp"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-
-    </View>
-
-    <LinearLayout
-
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view2">
-
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/icon_nopic" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="16dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/dynoregular"
-                android:text="Erzaldi Rosman"
-                android:textColor="#fff"
-                android:textSize="20dp"
-
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Gubernur"
-                android:textColor="#fff" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-        <TableLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/view2"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="100dp"
-            android:background="@drawable/bg_layout_white"
-            android:padding="24dp">
+            android:layout_height="wrap_content">
 
-            <TableRow android:background="#ECECEC">
+            <HorizontalScrollView
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="100dp"
+                android:background="@drawable/bg_layout_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_menu">
 
-                <TextView
-                    android:width="70dp"
-                    android:paddingTop="4dp"
-                    android:text="ID"
-                    android:textAlignment="center"
-                    android:textSize="12dp" />
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:padding="24dp">
+                    <TableRow android:background="#ECECEC" android:layout_marginBottom="8dp">
 
-                <TextView
-                    android:height="40dp"
-                    android:text="RPJMD, Renstra, \nProgram, Kegiatan"
-                    android:textSize="12dp" />
+                        <TextView
+                            android:width="70dp"
+                            android:paddingTop="4dp"
+                            android:text="ID"
+                            android:textAlignment="center"
+                            android:textSize="12dp" />
 
-                <TextView
-                    android:paddingLeft="14dp"
-                    android:text="Capaian\n/Target"
-                    android:textSize="12dp" />
-            </TableRow>
+                        <TextView
+                            android:height="40dp"
+                            android:text="RPJMD, Renstra, \nProgram, Kegiatan"
+                            android:textSize="12dp" />
 
-            <TableRow>
+                        <TextView
+                            android:paddingLeft="14dp"
+                            android:text="Capaian\n/Target"
+                            android:textSize="12dp" />
+                    </TableRow>
 
-                <TextView
-                    android:width="70dp"
+                    <TableRow android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:width="70dp"
+                            android:gravity="center"
+                            android:text="26"
+                            android:textAlignment="center"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:width="160dp"
+                            android:text="[Sasaran RPJMD] Meningkatnya kesempatan pendidikan bagi masyarakat"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:paddingLeft="14dp"
+                            android:text="90% / 88 %"
+                            android:textSize="12dp" />
+                    </TableRow>
+
+                    <TableRow android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:width="70dp"
+                            android:gravity="center"
+                            android:text="26 - 188"
+                            android:textAlignment="center"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:width="160dp"
+                            android:text="[Sasaran Renstra] Peningkatan Relevansi pendidikan bidang SMK bidang pertanian, perkebunan dan peternakan"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:paddingLeft="14dp"
+                            android:text="80% / 83 %"
+                            android:textSize="12dp" />
+                    </TableRow>
+
+                    <TableRow android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:width="70dp"
+                            android:gravity="center"
+                            android:text="26 - 188 - 614"
+                            android:textAlignment="center"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:width="180dp"
+                            android:text="[Renja Program] Program peningkatan dan Pengembangan pelayanan pendidikan kejuruan"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:paddingLeft="14dp"
+                            android:text="95% / 83 %"
+                            android:textSize="12dp" />
+                    </TableRow>
+
+                    <TableRow android:layout_marginBottom="8dp">
+
+                        <TextView
+                            android:width="70dp"
+                            android:gravity="center"
+                            android:text="26 - 188 - 614 - 4262"
+                            android:textAlignment="center"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:width="160dp"
+                            android:text="[Sasaran Renstra] Pemberian beasiswa siswa SMK"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:paddingLeft="14dp"
+                            android:text="90% / 88 %"
+                            android:textSize="12dp" />
+                    </TableRow>
+                </TableLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:id="@+id/layout_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view">
+
+                <LinearLayout
+                    android:id="@+id/pkeuangan"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/bg_layout_white"
                     android:gravity="center"
-                    android:text="26"
-                    android:textAlignment="center"
-                    android:textSize="12dp" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:width="160dp"
-                    android:height="80dp"
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/keuangan" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/pfisik"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="24dp"
+                    android:background="@drawable/bg_layout_white"
                     android:gravity="center"
-                    android:text="[Sasaran RPJMD] Meningkatnya kesempatan pendidikan bagi masyarakat"
-                    android:textSize="12dp" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:paddingLeft="14dp"
-                    android:text="90% / 88 %"
-                    android:textSize="12dp" />
-            </TableRow>
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/fisik" />
 
-            <TableRow>
+                </LinearLayout>
 
-                <TextView
-                    android:width="70dp"
-                    android:gravity="center"
-                    android:text="26 - 188"
-                    android:textAlignment="center"
-                    android:textSize="12dp" />
+            </LinearLayout>
 
-                <TextView
-                    android:width="160dp"
-                    android:height="80dp"
-                    android:gravity="center"
-                    android:text="[Sasaran Renstra] Peningkatan Relevansi pendidikan bidang SMK bidang pertanian, perkebunan dan peternakan"
-                    android:textSize="12dp" />
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/gover"
+                app:layout_constraintTop_toTopOf="parent"></View>
 
-                <TextView
-                    android:paddingLeft="14dp"
-                    android:text="80% / 83 %"
-                    android:textSize="12dp" />
-            </TableRow>
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#77000000"
+                app:layout_constraintTop_toTopOf="parent"></View>
 
-            <TableRow>
 
-                <TextView
-                    android:width="70dp"
-                    android:gravity="center"
-                    android:text="26 - 188 - 614"
-                    android:textAlignment="center"
-                    android:textSize="12dp" />
-
-                <TextView
-                    android:width="160dp"
-                    android:height="80dp"
-                    android:gravity="center"
-                    android:text="[Renja Program] Program peningkatan dan Pengembangan pelayanan pendidikan kejuruan"
-                    android:textSize="12dp" />
-
-                <TextView
-                    android:paddingLeft="14dp"
-                    android:text="95% / 83 %"
-                    android:textSize="12dp" />
-            </TableRow>
-
-            <TableRow>
-
-                <TextView
-                    android:width="70dp"
-                    android:gravity="center"
-                    android:text="26 - 188 - 614 - 4262"
-                    android:textAlignment="center"
-                    android:textSize="12dp" />
-
-                <TextView
-                    android:width="160dp"
-                    android:height="80dp"
-                    android:gravity="center"
-                    android:text="[Sasaran Renstra] Pemberian beasiswa siswa SMK"
-                    android:textSize="12dp" />
-
-                <TextView
-                    android:paddingLeft="14dp"
-                    android:text="90% / 88 %"
-                    android:textSize="12dp" />
-            </TableRow>
-        </TableLayout>
-    </RelativeLayout>
+        </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
