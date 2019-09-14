@@ -34,13 +34,22 @@ public class LoginAct extends AppCompatActivity {
 
     Context mContext;
     BaseApiService mApiService;
+    SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        initComponents();
+
+        sharedPrefManager = new SharedPrefManager(this);
+        if (sharedPrefManager.getSPSudahLogin()){
+            startActivity(new Intent(LoginAct.this, HomeAct.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
         mContext = this;
         mApiService = UtilsApi.getAPIService(); // meng-init yang ada di package apihelper
-        initComponents();
+
     }
 
     private void initComponents() {
@@ -69,13 +78,21 @@ public class LoginAct extends AppCompatActivity {
                                             // akan diparsing ke activity selanjutnya.
                                             Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
                                             String nama = jsonRESULTS.getJSONObject("user").getString("nama");
-                                            String  title_role = jsonRESULTS.getJSONObject("user").getString("title_role");
-                                            String  url_foto = jsonRESULTS.getJSONObject("user").getString("photo");
-                                            Intent intent = new Intent(mContext, HomeAct.class);
-                                            intent.putExtra("result_nama", nama);
-                                            intent.putExtra("result_title_role", title_role);
-                                            intent.putExtra("result_url_foto", url_foto);
-                                            startActivity(intent);
+                                            String title_role = jsonRESULTS.getJSONObject("user").getString("title_role");
+                                            String url_foto = jsonRESULTS.getJSONObject("user").getString("photo");
+//                                            Intent intent = new Intent(mContext, HomeAct.class);
+//                                            intent.putExtra("result_nama", nama);
+//                                            intent.putExtra("result_title_role", title_role);
+//                                            intent.putExtra("result_url_foto", url_foto);
+                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
+                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_ROLE, title_role);
+                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_URL_FOTO, url_foto);
+                                            // Shared Pref ini berfungsi untuk menjadi trigger session login
+                                            sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
+                                            startActivity(new Intent(mContext, HomeAct.class)
+                                                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                            finish();
+
                                         } else {
                                             // Jika login gagal
                                             String error_message = "Login Gagal";

@@ -1,5 +1,6 @@
 package com.anugraha.project.e_monev;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,13 +16,13 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 public class HomeAct extends AppCompatActivity {
-
+    SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar); //Inisialisasi dan Implementasi id Toolbar
-
+        sharedPrefManager = new SharedPrefManager(this);
         setSupportActionBar(toolbar); // Memasang Toolbar pada Aplikasi
         getSupportActionBar().setTitle("E-MONEV"); // Memasang Judul pada Toolbar
         //Menampilkan halaman Fragment yang pertama kali muncul
@@ -71,6 +72,13 @@ public class HomeAct extends AppCompatActivity {
             case R.id.about :
                 //Kode disini akan di eksekusi saat tombol about di klik
                 Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+
+                break;
+            case R.id.logout :
+                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
+                startActivity(new Intent(HomeAct.this, LoginAct.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
                 break;
 
         }

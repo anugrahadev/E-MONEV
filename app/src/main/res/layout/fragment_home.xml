@@ -200,10 +200,11 @@
                 app:layout_constraintTop_toTopOf="parent"></View>
 
             <LinearLayout
+                android:id="@+id/layout_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginBottom="16dp"
                 android:orientation="horizontal"
                 android:padding="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/view2"
@@ -235,7 +236,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/dynobold"
-                        android:text="Gubernur"
+                        android:text=""
                         android:textColor="#fff" />
 
                 </LinearLayout>

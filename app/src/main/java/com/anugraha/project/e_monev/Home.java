@@ -18,15 +18,17 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class Home extends Fragment {
     TextView tvResultNama;
     String resultNama, resultTitle_role,resultUrl_foto;
-    LinearLayout pkeuangan,pfisik;
+    SharedPrefManager sharedPrefManager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+        sharedPrefManager = new SharedPrefManager(getActivity().getApplicationContext());
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         LinearLayout pkeuangan = (LinearLayout) view.findViewById(R.id.pkeuangan);
         LinearLayout pfisik = (LinearLayout) view.findViewById(R.id.pfisik);
+        LinearLayout layout_profile = (LinearLayout) view.findViewById(R.id.layout_profile);
         pkeuangan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,18 +43,28 @@ public class Home extends Fragment {
                 startActivity(gotopfisik);
             }
         });
+        layout_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotopprofile = new Intent(getActivity(), MyProfileAct.class);
+                startActivity(gotopprofile);
+            }
+        });
         TextView tvnama = (TextView) view.findViewById(R.id.ResultNama);
         TextView tvtitle_role = (TextView) view.findViewById(R.id.title_role);
         CircleImageView tvfoto = (CircleImageView) view.findViewById(R.id.foto);
         Bundle extras = getActivity().getIntent().getExtras();
-        if (extras != null) {
-            resultNama = extras.getString("result_nama");
-            resultTitle_role = extras.getString("result_title_role");
-            resultUrl_foto = extras.getString("result_url_foto");
-            tvnama.setText(resultNama);
-            tvtitle_role.setText(resultTitle_role);
-            Picasso.with(getActivity()).load(resultUrl_foto).into(tvfoto);
-        }
+//        if (extras != null) {
+//            resultNama = extras.getString("result_nama");
+//            resultTitle_role = extras.getString("result_title_role");
+//            resultUrl_foto = extras.getString("result_url_foto");
+//            tvnama.setText(resultNama);
+//            tvtitle_role.setText(resultTitle_role);
+//            Picasso.with(getActivity()).load(resultUrl_foto).into(tvfoto);
+//        }
+        tvnama.setText(sharedPrefManager.getSPNama());
+        tvtitle_role.setText(sharedPrefManager.getSPRole());
+        Picasso.with(getActivity()).load(sharedPrefManager.getSPUrlFoto()).into(tvfoto);
         return view;
 
 
