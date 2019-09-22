@@ -42,8 +42,10 @@ public class MyProfileAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
-                startActivity(new Intent(MyProfileAct.this, LoginAct.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                Intent logout = new Intent(MyProfileAct.this, LoginAct.class);
+                logout.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(logout);
                 finish();
             }
         });

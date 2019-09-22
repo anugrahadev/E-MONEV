@@ -36,6 +36,11 @@ public class LoginAct extends AppCompatActivity {
     BaseApiService mApiService;
     SharedPrefManager sharedPrefManager;
     @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -76,7 +81,7 @@ public class LoginAct extends AppCompatActivity {
                                         if (jsonRESULTS.getString("error").equals("false")){
                                             // Jika login berhasil maka data nama yang ada di response API
                                             // akan diparsing ke activity selanjutnya.
-                                            Toast.makeText(mContext, "BERHASIL LOGIN", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(mContext, "Welcome!", Toast.LENGTH_SHORT).show();
                                             String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                             String title_role = jsonRESULTS.getJSONObject("user").getString("title_role");
                                             String url_foto = jsonRESULTS.getJSONObject("user").getString("photo");
@@ -95,7 +100,7 @@ public class LoginAct extends AppCompatActivity {
 
                                         } else {
                                             // Jika login gagal
-                                            String error_message = "Login Gagal";
+                                            String error_message = jsonRESULTS.getString("message");
                                             Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (JSONException e) {

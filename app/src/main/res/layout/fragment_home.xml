@@ -28,114 +28,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_menu">
-
-                <TableLayout
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:padding="24dp">
-                    <TableRow android:background="#ECECEC" android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:width="70dp"
-                            android:paddingTop="4dp"
-                            android:text="ID"
-                            android:textAlignment="center"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:id="@+id/coba"
-                            android:height="40dp"
-                            android:text="RPJMD, Renstra, \nProgram, Kegiatan"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:paddingLeft="14dp"
-                            android:text="Capaian\n/Target"
-                            android:textSize="12dp" />
-                    </TableRow>
-
-                    <TableRow android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:width="70dp"
-                            android:gravity="center"
-                            android:text="26"
-                            android:textAlignment="center"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:width="160dp"
-                            android:text="[Sasaran RPJMD] Meningkatnya kesempatan pendidikan bagi masyarakat"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:paddingLeft="14dp"
-                            android:text="90% / 88 %"
-                            android:textSize="12dp" />
-                    </TableRow>
-
-                    <TableRow android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:width="70dp"
-                            android:gravity="center"
-                            android:text="26 - 188"
-                            android:textAlignment="center"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:width="160dp"
-                            android:text="[Sasaran Renstra] Peningkatan Relevansi pendidikan bidang SMK bidang pertanian, perkebunan dan peternakan"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:paddingLeft="14dp"
-                            android:text="80% / 83 %"
-                            android:textSize="12dp" />
-                    </TableRow>
-
-                    <TableRow android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:width="70dp"
-                            android:gravity="center"
-                            android:text="26 - 188 - 614"
-                            android:textAlignment="center"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:width="180dp"
-                            android:text="[Renja Program] Program peningkatan dan Pengembangan pelayanan pendidikan kejuruan"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:paddingLeft="14dp"
-                            android:text="95% / 83 %"
-                            android:textSize="12dp" />
-                    </TableRow>
-
-                    <TableRow android:layout_marginBottom="8dp">
-
-                        <TextView
-                            android:width="70dp"
-                            android:gravity="center"
-                            android:text="26 - 188 - 614 - 4262"
-                            android:textAlignment="center"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:width="160dp"
-                            android:text="[Sasaran Renstra] Pemberian beasiswa siswa SMK"
-                            android:textSize="12dp" />
-
-                        <TextView
-                            android:paddingLeft="14dp"
-                            android:text="90% / 88 %"
-                            android:textSize="12dp" />
-                    </TableRow>
-                </TableLayout>
+                    android:scrollbars="vertical" />
 
             </HorizontalScrollView>
 

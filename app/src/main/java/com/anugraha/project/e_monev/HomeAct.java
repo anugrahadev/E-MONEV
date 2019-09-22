@@ -1,8 +1,12 @@
 package com.anugraha.project.e_monev;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -15,7 +19,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.anugraha.project.e_monev.adapter.DataAdapter;
+import com.anugraha.project.e_monev.apihelper.BaseApiService;
+import com.anugraha.project.e_monev.apihelper.RetroClient;
+import com.anugraha.project.e_monev.model.Data;
+import com.anugraha.project.e_monev.model.DataList;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class HomeAct extends AppCompatActivity {
+    private ArrayList<Data> employeeList;
+    private ProgressDialog pDialog;
+    private RecyclerView recyclerView;
+    private DataAdapter eAdapter;
     SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +73,51 @@ public class HomeAct extends AppCompatActivity {
                         break;
                 }
                 return getFragmentPage(fragment);
+            }
+        });
+
+        pDialog = new ProgressDialog(HomeAct.this);
+        pDialog.setMessage("Loading Data.. Please wait...");
+        pDialog.setIndeterminate(false);
+        pDialog.setCancelable(false);
+        pDialog.show();
+
+        //Creating an object of our api interface
+        BaseApiService api = RetroClient.getApiService();
+
+        /**
+         * Calling JSON
+         */
+
+//        Call<DataList> call = api.getMyJSON();
+        Call<DataList> call = api.getDataData(2017,0);
+
+        /**
+         * Enqueue Callback will be call when get response...
+         */
+        call.enqueue(new Callback<DataList>() {
+            @Override
+            public void onResponse(Call<DataList> call, Response<DataList> response) {
+                //Dismiss Dialog
+                pDialog.dismiss();
+
+                if (response.isSuccessful()) {
+                    /**
+                     * Got Successfully
+                     */
+                    employeeList = response.body().getdata();
+                    recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+                    eAdapter = new DataAdapter(employeeList);
+                    RecyclerView.LayoutManager eLayoutManager = new LinearLayoutManager(getApplicationContext());
+                    recyclerView.setLayoutManager(eLayoutManager);
+                    recyclerView.setItemAnimator(new DefaultItemAnimator());
+                    recyclerView.setAdapter(eAdapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DataList> call, Throwable t) {
+                pDialog.dismiss();
             }
         });
     }

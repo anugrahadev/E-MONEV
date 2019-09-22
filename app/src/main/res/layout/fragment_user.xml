@@ -1,18 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".User">
 
+    <View
+        android:layout_marginTop="54dp"
+        android:id="@+id/view6"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:background="@drawable/ic_waveemonev"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/photo_profile"
+        android:layout_width="110dp"
+        android:layout_height="113.5dp"
+        android:layout_alignEnd="@+id/view6"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/icon_nopic"
+        app:civ_border_color="#fff"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view6" />
+
     <TextView
+        android:id="@+id/nama_lengkap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Notification Page"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/dynoregular"
+        android:text="Your Name"
+        android:textColor="#fff"
+        android:textSize="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_profile" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/dynoregular"
+        android:text="Role"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nama_lengkap" />
+
+
+    <Button
+        android:layout_marginTop="36dp"
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_btn_blue_primary"
+        android:fontFamily="@font/dynoregular"
+        android:text="Edit Profile"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/role" />
+
+    <Button
+        android:id="@+id/btn_sign_out"
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bg_btn_white_primary"
+        android:fontFamily="@font/dynoregular"
+        android:text="Signout"
+        android:textAlignment="center"
+        android:textColor="@color/grayPrimary"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_edit_profile" />
+
+
+
+</android.support.constraint.ConstraintLayout>
