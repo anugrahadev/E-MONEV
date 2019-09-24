@@ -11,6 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -36,11 +40,14 @@ public class HomeAct extends AppCompatActivity {
     private ProgressDialog pDialog;
     private RecyclerView recyclerView;
     private DataAdapter eAdapter;
+    EditText et_tahun;
+    Button btn_tampilkan;
     SharedPrefManager sharedPrefManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         Toolbar toolbar = findViewById(R.id.toolbar); //Inisialisasi dan Implementasi id Toolbar
         sharedPrefManager = new SharedPrefManager(this);
         setSupportActionBar(toolbar); // Memasang Toolbar pada Aplikasi
@@ -76,50 +83,9 @@ public class HomeAct extends AppCompatActivity {
             }
         });
 
-        pDialog = new ProgressDialog(HomeAct.this);
-        pDialog.setMessage("Loading Data.. Please wait...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();
 
-        //Creating an object of our api interface
-        BaseApiService api = RetroClient.getApiService();
 
-        /**
-         * Calling JSON
-         */
 
-//        Call<DataList> call = api.getMyJSON();
-        Call<DataList> call = api.getDataData(2017,0);
-
-        /**
-         * Enqueue Callback will be call when get response...
-         */
-        call.enqueue(new Callback<DataList>() {
-            @Override
-            public void onResponse(Call<DataList> call, Response<DataList> response) {
-                //Dismiss Dialog
-                pDialog.dismiss();
-
-                if (response.isSuccessful()) {
-                    /**
-                     * Got Successfully
-                     */
-                    employeeList = response.body().getdata();
-                    recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-                    eAdapter = new DataAdapter(employeeList);
-                    RecyclerView.LayoutManager eLayoutManager = new LinearLayoutManager(getApplicationContext());
-                    recyclerView.setLayoutManager(eLayoutManager);
-                    recyclerView.setItemAnimator(new DefaultItemAnimator());
-                    recyclerView.setAdapter(eAdapter);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<DataList> call, Throwable t) {
-                pDialog.dismiss();
-            }
-        });
     }
     //Code Program pada Method dibawah ini akan Berjalan saat Option Menu Dibuat
     @Override

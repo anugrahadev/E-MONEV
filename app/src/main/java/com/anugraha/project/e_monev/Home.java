@@ -1,25 +1,46 @@
 package com.anugraha.project.e_monev;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.anugraha.project.e_monev.adapter.DataAdapter;
+import com.anugraha.project.e_monev.apihelper.BaseApiService;
+import com.anugraha.project.e_monev.apihelper.RetroClient;
+import com.anugraha.project.e_monev.model.Data;
+import com.anugraha.project.e_monev.model.DataList;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Home extends Fragment {
     TextView tvResultNama;
     String resultNama, resultTitle_role,resultUrl_foto;
     SharedPrefManager sharedPrefManager;
-
+    private ArrayList<Data> employeeList;
+    private ProgressDialog pDialog;
+    private RecyclerView recyclerView;
+    private DataAdapter eAdapter;
+    EditText et_tahun;
+    Button btn_tampilkan;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -62,6 +83,59 @@ public class Home extends Fragment {
 //            tvtitle_role.setText(resultTitle_role);
 //            Picasso.with(getActivity()).load(resultUrl_foto).into(tvfoto);
 //        }
+        et_tahun = view.findViewById(R.id.et_tahun);
+        btn_tampilkan = (Button) view.findViewById(R.id.btn_tampilkan);
+        btn_tampilkan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tahun = Integer.parseInt(String.valueOf(et_tahun.getText()));
+                pDialog = new ProgressDialog(getActivity());
+                pDialog.setMessage("Loading Data.. Please wait...");
+                pDialog.setIndeterminate(false);
+                pDialog.setCancelable(false);
+                pDialog.show();
+
+                //Creating an object of our api interface
+                BaseApiService api = RetroClient.getApiService();
+
+                /**
+                 * Calling JSON
+                 */
+
+//        Call<DataList> call = api.getMyJSON();
+                Call<DataList> call = api.getDataData(tahun,0);
+
+                /**
+                 * Enqueue Callback will be call when get response...
+                 */
+                call.enqueue(new Callback<DataList>() {
+                    @Override
+                    public void onResponse(Call<DataList> call, Response<DataList> response) {
+                        //Dismiss Dialog
+                        pDialog.dismiss();
+
+                        if (response.isSuccessful()) {
+                            /**
+                             * Got Successfully
+                             */
+                            employeeList = response.body().getdata();
+                            recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
+                            eAdapter = new DataAdapter(employeeList);
+                            RecyclerView.LayoutManager eLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+                            recyclerView.setLayoutManager(eLayoutManager);
+                            recyclerView.setItemAnimator(new DefaultItemAnimator());
+                            recyclerView.setAdapter(eAdapter);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<DataList> call, Throwable t) {
+                        pDialog.dismiss();
+                    }
+                });
+            }
+        });
+
         tvnama.setText(sharedPrefManager.getSPNama());
         tvtitle_role.setText(sharedPrefManager.getSPRole());
         Picasso.with(getActivity()).load(sharedPrefManager.getSPUrlFoto()).into(tvfoto);

@@ -19,20 +19,21 @@
                 android:scrollbars="none"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="100dp"
                 android:background="@drawable/bg_layout_white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/layout_menu">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scrollbars="vertical" />
+                    android:scrollbars="none" />
 
             </HorizontalScrollView>
 
@@ -82,19 +83,29 @@
 
             </LinearLayout>
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="@drawable/gover"
-                app:layout_constraintTop_toTopOf="parent"></View>
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_menu">
 
-            <View
-                android:id="@+id/view2"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:background="#77000000"
-                app:layout_constraintTop_toTopOf="parent"></View>
+                <EditText
+                    android:id="@+id/et_tahun"
+                    android:layout_width="55dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_menu" />
+                <Button
+                    android:id="@+id/btn_tampilkan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="Show"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/layout_profile"
@@ -107,13 +118,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/view2"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/foto"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:padding="4dp"
-                    android:src="@drawable/icon_nopic" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -138,7 +142,32 @@
 
                 </LinearLayout>
 
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/foto"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="4dp"
+                    android:src="@drawable/icon_nopic" />
+
             </LinearLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#77000000"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </View>
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/gover"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </View>
 
 
         </android.support.constraint.ConstraintLayout>
