@@ -7,9 +7,12 @@ public class SharedPrefManager {
     public static final String SP_MAHASISWA_APP = "spMahasiswaApp";
 
     public static final String SP_NAMA = "spNama";
+    public static final String SP_ID= "spId";
+    public static final String SP_USERNAME = "spUsername";
     public static final String SP_ROLE = "spROLE";
     public static final String SP_URL_FOTO = "spURL_FOTO";
 
+    //ceklogin
     public static final String SP_SUDAH_LOGIN = "spSudahLogin";
 
     SharedPreferences sp;
@@ -45,6 +48,16 @@ public class SharedPrefManager {
     public String getSPUrlFoto(){
         return sp.getString(SP_URL_FOTO, "");
     }
+
+    public String getSPId(){
+        return sp.getString(SP_ID, "");
+    }
+
+    public String getSpUsername(){
+        return sp.getString(SP_USERNAME, "");
+    }
+
+
 
     public Boolean getSPSudahLogin(){
         return sp.getBoolean(SP_SUDAH_LOGIN, false);

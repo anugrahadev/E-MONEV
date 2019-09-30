@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anugraha.project.e_monev.adapter.DataAdapter;
 import com.anugraha.project.e_monev.apihelper.BaseApiService;
@@ -88,51 +90,60 @@ public class Home extends Fragment {
         btn_tampilkan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int tahun = Integer.parseInt(String.valueOf(et_tahun.getText()));
-                pDialog = new ProgressDialog(getActivity());
-                pDialog.setMessage("Loading Data.. Please wait...");
-                pDialog.setIndeterminate(false);
-                pDialog.setCancelable(false);
-                pDialog.show();
+                final String inputtahun = et_tahun.getText().toString();
+                boolean digitsOnly = TextUtils.isDigitsOnly(et_tahun.getText());
+                if(inputtahun.isEmpty()) {
+                    Toast.makeText(getActivity(), "Masukkan tahun!", Toast.LENGTH_SHORT).show();
+                }else if(!digitsOnly){
+                    Toast.makeText(getActivity(), "Masukkan tahun berupa angka!", Toast.LENGTH_SHORT).show();
+                }else{
+                    int tahun = Integer.parseInt(String.valueOf(et_tahun.getText()));
+                    pDialog = new ProgressDialog(getActivity());
+                    pDialog.setMessage("Loading Data.. Please wait...");
+                    pDialog.setIndeterminate(false);
+                    pDialog.setCancelable(false);
+                    pDialog.show();
 
-                //Creating an object of our api interface
-                BaseApiService api = RetroClient.getApiService();
+                    //Creating an object of our api interface
+                    BaseApiService api = RetroClient.getApiService();
 
-                /**
-                 * Calling JSON
-                 */
+                    /**
+                     * Calling JSON
+                     */
 
 //        Call<DataList> call = api.getMyJSON();
-                Call<DataList> call = api.getDataData(tahun,0);
+                    Call<DataList> call = api.getDataData(tahun,0);
 
-                /**
-                 * Enqueue Callback will be call when get response...
-                 */
-                call.enqueue(new Callback<DataList>() {
-                    @Override
-                    public void onResponse(Call<DataList> call, Response<DataList> response) {
-                        //Dismiss Dialog
-                        pDialog.dismiss();
+                    /**
+                     * Enqueue Callback will be call when get response...
+                     */
+                    call.enqueue(new Callback<DataList>() {
+                        @Override
+                        public void onResponse(Call<DataList> call, Response<DataList> response) {
+                            //Dismiss Dialog
+                            pDialog.dismiss();
 
-                        if (response.isSuccessful()) {
-                            /**
-                             * Got Successfully
-                             */
-                            employeeList = response.body().getdata();
-                            recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
-                            eAdapter = new DataAdapter(employeeList);
-                            RecyclerView.LayoutManager eLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-                            recyclerView.setLayoutManager(eLayoutManager);
-                            recyclerView.setItemAnimator(new DefaultItemAnimator());
-                            recyclerView.setAdapter(eAdapter);
+                            if (response.isSuccessful()) {
+                                /**
+                                 * Got Successfully
+                                 */
+                                employeeList = response.body().getdata();
+                                recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
+                                eAdapter = new DataAdapter(employeeList);
+                                RecyclerView.LayoutManager eLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+                                recyclerView.setLayoutManager(eLayoutManager);
+                                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                                recyclerView.setAdapter(eAdapter);
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<DataList> call, Throwable t) {
-                        pDialog.dismiss();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<DataList> call, Throwable t) {
+                            pDialog.dismiss();
+                        }
+                    });
+                }
+
             }
         });
 

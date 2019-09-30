@@ -26,6 +26,7 @@ public class User extends Fragment {
         TextView tvtitle_role = (TextView) view.findViewById(R.id.role);
         CircleImageView tvfoto = (CircleImageView) view.findViewById(R.id.photo_profile);
         Button btn_logout = (Button) view.findViewById(R.id.btn_sign_out);
+        Button btn_edit_profile = (Button) view.findViewById(R.id.btn_edit_profile);
         tvnama.setText(sharedPrefManager.getSPNama());
         tvtitle_role.setText(sharedPrefManager.getSPRole());
         Picasso.with(getActivity()).load(sharedPrefManager.getSPUrlFoto()).into(tvfoto);
@@ -39,6 +40,13 @@ public class User extends Fragment {
                 logout.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(logout);
                 getActivity().finish();
+            }
+        });
+        btn_edit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent edit = new Intent(getActivity(), EditProfileAct.class);
+                startActivity(edit);
             }
         });
 

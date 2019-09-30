@@ -25,6 +25,7 @@ public class MyProfileAct extends AppCompatActivity {
         CircleImageView tvFoto = (CircleImageView) findViewById(R.id.photo_profile);
         Button btn_back = (Button) findViewById(R.id.btn_back);
         Button btn_logout = (Button) findViewById(R.id.btn_sign_out);
+        Button btn_edit_profile = (Button) findViewById(R.id.btn_edit_profile);
         //END INIT COMPONENTS
         tvNama.setText(sharedPrefManager.getSPNama());
         tvRole.setText(sharedPrefManager.getSPRole());
@@ -49,6 +50,16 @@ public class MyProfileAct extends AppCompatActivity {
                 finish();
             }
         });
+
+        btn_edit_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gotoEditP = new Intent(MyProfileAct.this, EditProfileAct.class);
+                startActivity(gotoEditP);
+            }
+        });
+
+
 
     }
 }

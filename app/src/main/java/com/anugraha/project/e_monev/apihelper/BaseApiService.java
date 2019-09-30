@@ -1,5 +1,6 @@
 package com.anugraha.project.e_monev.apihelper;
         import com.anugraha.project.e_monev.model.DataList;
+        import com.anugraha.project.e_monev.modelprofile.Editprofilemodel;
 
         import okhttp3.ResponseBody;
         import retrofit2.Call;
@@ -19,15 +20,14 @@ public interface BaseApiService {
     //bisa /editUser untuk edit, datanyo 'id_user', 'username', 'nama', 'password' (baru)
     @FormUrlEncoded
     @POST("UserController/editUser")
-    Call<ResponseBody> editRequest(@Field("id_user") String id_user,
-                                   @Field("username") String username,
-                                   @Field("nama") String nama,
-                                    @Field("password") String password);
+    Call<Editprofilemodel> editRequest(@Field("id_user") int id_user,
+                                       @Field("username") String username,
+                                       @Field("nama") String nama,
+                                       @Field("password") String password);
 
-    @FormUrlEncoded
-    @POST("OPDController/getCascadeRPJMD")
-    Call<ResponseBody> RPJMDRequest(@Field("tahun") String tahun);
-
+    //tampilkan Cascade
     @GET("simdasync/index.php/OPDController/getCascadeRPJMD")
     Call<DataList> getDataData(@Query("tahun") int tahun, @Query("assoc") int assoc);
+
+
 }

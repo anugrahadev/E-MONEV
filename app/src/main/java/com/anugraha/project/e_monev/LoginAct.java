@@ -31,7 +31,6 @@ public class LoginAct extends AppCompatActivity {
     Button btnLogin;
     Button btnRegister;
     ProgressDialog loading;
-
     Context mContext;
     BaseApiService mApiService;
     SharedPrefManager sharedPrefManager;
@@ -85,6 +84,8 @@ public class LoginAct extends AppCompatActivity {
                                             String nama = jsonRESULTS.getJSONObject("user").getString("nama");
                                             String title_role = jsonRESULTS.getJSONObject("user").getString("title_role");
                                             String url_foto = jsonRESULTS.getJSONObject("user").getString("photo");
+                                            String id = jsonRESULTS.getJSONObject("user").getString("id_user");
+                                            String username = jsonRESULTS.getJSONObject("user").getString("username");
 //                                            Intent intent = new Intent(mContext, HomeAct.class);
 //                                            intent.putExtra("result_nama", nama);
 //                                            intent.putExtra("result_title_role", title_role);
@@ -92,6 +93,8 @@ public class LoginAct extends AppCompatActivity {
                                             sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, nama);
                                             sharedPrefManager.saveSPString(SharedPrefManager.SP_ROLE, title_role);
                                             sharedPrefManager.saveSPString(SharedPrefManager.SP_URL_FOTO, url_foto);
+                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_ID, id);
+                                            sharedPrefManager.saveSPString(SharedPrefManager.SP_USERNAME, username);
                                             // Shared Pref ini berfungsi untuk menjadi trigger session login
                                             sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
                                             startActivity(new Intent(mContext, HomeAct.class)

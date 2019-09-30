@@ -45,11 +45,11 @@
                 android:textSize="18dp" />
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/et_username"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/bg_input_edit"
+                android:background="@drawable/bg_input_white_edit"
                 android:fontFamily="@font/dynoregular"
                 android:inputType="text"
                 android:lines="1"
@@ -73,11 +73,11 @@
                 android:textColor="@color/grayPrimary"
                 android:textSize="18dp" />
             <EditText
-                android:id="@+id/nama"
+                android:id="@+id/et_nama"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/bg_input_edit"
+                android:background="@drawable/bg_input_white_edit"
                 android:fontFamily="@font/dynoregular"
                 android:inputType="text"
                 android:lines="1"
@@ -104,13 +104,13 @@
                 android:textSize="18dp" />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/et_password"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/bg_input_edit"
+                android:background="@drawable/bg_input_white_edit"
                 android:fontFamily="@font/dynoregular"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:lines="1"
                 android:paddingLeft="12dp"
                 android:textColor="@color/blackPrimary"

@@ -10,7 +10,7 @@
     android:paddingBottom="13dp">
 
     <TextView
-        android:textColor="#00BD8E"
+        android:textColor="#01d28e"
         android:padding="8dp"
         android:id="@+id/id"
         android:layout_width="35dp"
@@ -21,12 +21,12 @@
         android:id="@+id/nama"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textColor="#00BD8E"
+        android:textColor="#01d28e"
         android:text="nama_sasaran_rpjmd" />
 
     <TextView
         android:padding="8dp"
-        android:textColor="#00BD8E"
+        android:textColor="#01d28e"
         android:id="@+id/sasaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
