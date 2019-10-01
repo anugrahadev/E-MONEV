@@ -3,42 +3,54 @@ package com.anugraha.project.e_monev.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Data {
 
-    @SerializedName("id_sasaran_rpjmd")
+    @SerializedName("id_root")
     @Expose
-    private String idSasaranRpjmd;
-    @SerializedName("nama_sasaran_rpjmd")
+    private String idRoot;
+    @SerializedName("nama_root")
     @Expose
-    private String namaSasaranRpjmd;
-    @SerializedName("indikator_sasaran_rpjmd")
+    private String namaRoot;
+    @SerializedName("total_belanja")
     @Expose
-    private List<Object> indikatorSasaranRpjmd = null;
+    private Object totalBelanja;
+    @SerializedName("sasaran_rpjmd")
+    @Expose
+    private ArrayList<SasaranRpjmd> sasaranRpjmd = null;
 
-    public String getIdSasaranRpjmd() {
-        return idSasaranRpjmd;
+    public String getIdRoot() {
+        return idRoot;
     }
 
-    public void setIdSasaranRpjmd(String idSasaranRpjmd) {
-        this.idSasaranRpjmd = idSasaranRpjmd;
+    public void setIdRoot(String idRoot) {
+        this.idRoot = idRoot;
     }
 
-    public String getNamaSasaranRpjmd() {
-        return namaSasaranRpjmd;
+    public String getNamaRoot() {
+        return namaRoot;
     }
 
-    public void setNamaSasaranRpjmd(String namaSasaranRpjmd) {
-        this.namaSasaranRpjmd = namaSasaranRpjmd;
+    public void setNamaRoot(String namaRoot) {
+        this.namaRoot = namaRoot;
     }
 
-    public List<Object> getIndikatorSasaranRpjmd() {
-        return indikatorSasaranRpjmd;
+    public Object getTotalBelanja() {
+        return totalBelanja;
     }
 
-    public void setIndikatorSasaranRpjmd(List<Object> indikatorSasaranRpjmd) {
-        this.indikatorSasaranRpjmd = indikatorSasaranRpjmd;
+    public void setTotalBelanja(Object totalBelanja) {
+        this.totalBelanja = totalBelanja;
+    }
+
+    public ArrayList<SasaranRpjmd> getSasaranRpjmd() {
+        return sasaranRpjmd;
+    }
+
+    public void setSasaranRpjmd(ArrayList<SasaranRpjmd> sasaranRpjmd) {
+        this.sasaranRpjmd = sasaranRpjmd;
     }
 
 }

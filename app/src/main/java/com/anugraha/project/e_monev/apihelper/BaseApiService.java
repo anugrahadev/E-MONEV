@@ -1,5 +1,6 @@
 package com.anugraha.project.e_monev.apihelper;
         import com.anugraha.project.e_monev.model.DataList;
+        import com.anugraha.project.e_monev.model.Data;
         import com.anugraha.project.e_monev.modelprofile.Editprofilemodel;
 
         import okhttp3.ResponseBody;
@@ -20,14 +21,14 @@ public interface BaseApiService {
     //bisa /editUser untuk edit, datanyo 'id_user', 'username', 'nama', 'password' (baru)
     @FormUrlEncoded
     @POST("UserController/editUser")
-    Call<Editprofilemodel> editRequest(@Field("id_user") int id_user,
+    Call<Editprofilemodel> editRequest(@Field("id_user") String id_user,
                                        @Field("username") String username,
                                        @Field("nama") String nama,
                                        @Field("password") String password);
 
     //tampilkan Cascade
     @GET("simdasync/index.php/OPDController/getCascadeRPJMD")
-    Call<DataList> getDataData(@Query("tahun") int tahun, @Query("assoc") int assoc);
+    Call<Data> getDataData(@Query("tahun") int tahun, @Query("assoc") int assoc);
 
 
 }

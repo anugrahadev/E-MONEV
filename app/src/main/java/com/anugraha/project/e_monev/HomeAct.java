@@ -4,14 +4,11 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,27 +16,16 @@ import android.widget.Toast;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.MenuItem;
 
-import com.anugraha.project.e_monev.adapter.DataAdapter;
-import com.anugraha.project.e_monev.apihelper.BaseApiService;
-import com.anugraha.project.e_monev.apihelper.RetroClient;
+import com.anugraha.project.e_monev.adapter.SasaranRpjmdAdapter;
 import com.anugraha.project.e_monev.model.Data;
-import com.anugraha.project.e_monev.model.DataList;
 
 import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class HomeAct extends AppCompatActivity {
     private ArrayList<Data> employeeList;
     private ProgressDialog pDialog;
     private RecyclerView recyclerView;
-    private DataAdapter eAdapter;
     EditText et_tahun;
     Button btn_tampilkan;
     SharedPrefManager sharedPrefManager;

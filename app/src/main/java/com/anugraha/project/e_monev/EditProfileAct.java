@@ -60,7 +60,7 @@ public class EditProfileAct extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loading = ProgressDialog.show(mContext, null, "harap tunggu...", true, false);
-                mApiService.editRequest(3, "erzaldi_r", "Erzaldi", "asdasddddd")
+                mApiService.editRequest(sharedPrefManager.getSPId().toString(), et_username.getText().toString(), et_nama.getText().toString(), et_password.getText().toString())
                         .enqueue(new Callback<Editprofilemodel>() {
                             @Override
                             public void onResponse(Call<Editprofilemodel> call, Response<Editprofilemodel> response) {

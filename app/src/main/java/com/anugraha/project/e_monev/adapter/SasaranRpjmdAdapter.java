@@ -8,13 +8,14 @@ import android.widget.TextView;
 
 import com.anugraha.project.e_monev.R;
 import com.anugraha.project.e_monev.model.Data;
+import com.anugraha.project.e_monev.model.SasaranRpjmd;
 
 import java.util.List;
 
-public class DataAdapter extends RecyclerView.Adapter<DataAdapter.CustomViewHolder> {
-    private List<Data> data;
-    public DataAdapter(List<Data> data) {
-        this.data = data;
+public class SasaranRpjmdAdapter extends RecyclerView.Adapter<SasaranRpjmdAdapter.CustomViewHolder> {
+    private List<SasaranRpjmd> sasaran_rpjmd;
+    public SasaranRpjmdAdapter(List<SasaranRpjmd> sasaran_rpjmd) {
+        this.sasaran_rpjmd = sasaran_rpjmd;
     }
 
     @Override
@@ -27,16 +28,16 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.CustomViewHold
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        Data datas = data.get(position);
-        holder.id.setText(datas.getIdRoot());
-        holder.nama.setText(datas.getNamaRoot());
+        SasaranRpjmd datas = sasaran_rpjmd.get(position);
+        holder.id.setText(datas.getIdSasaranRpjmd());
+        holder.nama.setText(datas.getNamaSasaranRpjmd());
 //        holder.sasaran.setText(datas.getIndikatorSasaranRpjmd());
 
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return sasaran_rpjmd.size();
     }
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {

@@ -20,10 +20,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anugraha.project.e_monev.adapter.DataAdapter;
+import com.anugraha.project.e_monev.adapter.SasaranRpjmdAdapter;
 import com.anugraha.project.e_monev.apihelper.BaseApiService;
 import com.anugraha.project.e_monev.apihelper.RetroClient;
 import com.anugraha.project.e_monev.model.Data;
 import com.anugraha.project.e_monev.model.DataList;
+import com.anugraha.project.e_monev.model.SasaranRpjmd;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -37,10 +39,10 @@ public class Home extends Fragment {
     TextView tvResultNama;
     String resultNama, resultTitle_role,resultUrl_foto;
     SharedPrefManager sharedPrefManager;
-    private ArrayList<Data> employeeList;
+    private ArrayList<SasaranRpjmd> employeeList;
     private ProgressDialog pDialog;
     private RecyclerView recyclerView;
-    private DataAdapter eAdapter;
+    private SasaranRpjmdAdapter eAdapter;
     EditText et_tahun;
     Button btn_tampilkan;
     @Nullable
@@ -111,15 +113,15 @@ public class Home extends Fragment {
                      * Calling JSON
                      */
 
-//        Call<DataList> call = api.getMyJSON();
-                    Call<DataList> call = api.getDataData(tahun,0);
+                    //        Call<DataList> call = api.getMyJSON();
+                    Call<Data> call = api.getDataData(tahun,0);
 
                     /**
                      * Enqueue Callback will be call when get response...
                      */
-                    call.enqueue(new Callback<DataList>() {
+                    call.enqueue(new Callback<Data>() {
                         @Override
-                        public void onResponse(Call<DataList> call, Response<DataList> response) {
+                        public void onResponse(Call<Data> call, Response<Data> response) {
                             //Dismiss Dialog
                             pDialog.dismiss();
 
@@ -127,9 +129,9 @@ public class Home extends Fragment {
                                 /**
                                  * Got Successfully
                                  */
-                                employeeList = response.body().getdata();
+                                employeeList = response.body().getSasaranRpjmd();
                                 recyclerView = (RecyclerView) getActivity().findViewById(R.id.recycler_view);
-                                eAdapter = new DataAdapter(employeeList);
+                                eAdapter = new SasaranRpjmdAdapter(employeeList);
                                 RecyclerView.LayoutManager eLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
                                 recyclerView.setLayoutManager(eLayoutManager);
                                 recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -138,7 +140,7 @@ public class Home extends Fragment {
                         }
 
                         @Override
-                        public void onFailure(Call<DataList> call, Throwable t) {
+                        public void onFailure(Call<Data> call, Throwable t) {
                             pDialog.dismiss();
                         }
                     });
