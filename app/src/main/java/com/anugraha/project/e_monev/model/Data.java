@@ -3,54 +3,52 @@ package com.anugraha.project.e_monev.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Data {
-
-    @SerializedName("id_root")
+    @SerializedName("id_kegiatan")
     @Expose
-    private String idRoot;
-    @SerializedName("nama_root")
+    private Integer idKegiatan;
+    @SerializedName("nama_kegiatan")
     @Expose
-    private String namaRoot;
-    @SerializedName("total_belanja")
+    private String namaKegiatan;
+    @SerializedName("anggaran")
     @Expose
-    private Object totalBelanja;
-    @SerializedName("sasaran_rpjmd")
+    private Integer anggaran;
+    @SerializedName("progress_fisik")
     @Expose
-    private ArrayList<SasaranRpjmd> sasaranRpjmd = null;
+    private List<Integer> progressFisik = null;
 
-    public String getIdRoot() {
-        return idRoot;
+    public Integer getIdKegiatan() {
+        return idKegiatan;
     }
 
-    public void setIdRoot(String idRoot) {
-        this.idRoot = idRoot;
+    public void setIdKegiatan(Integer idKegiatan) {
+        this.idKegiatan = idKegiatan;
     }
 
-    public String getNamaRoot() {
-        return namaRoot;
+    public String getNamaKegiatan() {
+        return namaKegiatan;
     }
 
-    public void setNamaRoot(String namaRoot) {
-        this.namaRoot = namaRoot;
+    public void setNamaKegiatan(String namaKegiatan) {
+        this.namaKegiatan = namaKegiatan;
     }
 
-    public Object getTotalBelanja() {
-        return totalBelanja;
+    public Integer getAnggaran() {
+        return anggaran;
     }
 
-    public void setTotalBelanja(Object totalBelanja) {
-        this.totalBelanja = totalBelanja;
+    public void setAnggaran(Integer anggaran) {
+        this.anggaran = anggaran;
     }
 
-    public ArrayList<SasaranRpjmd> getSasaranRpjmd() {
-        return sasaranRpjmd;
+    public List<Integer> getProgressFisik() {
+        return progressFisik;
     }
 
-    public void setSasaranRpjmd(ArrayList<SasaranRpjmd> sasaranRpjmd) {
-        this.sasaranRpjmd = sasaranRpjmd;
+    public void setProgressFisik(List<Integer> progressFisik) {
+        this.progressFisik = progressFisik;
     }
 
 }

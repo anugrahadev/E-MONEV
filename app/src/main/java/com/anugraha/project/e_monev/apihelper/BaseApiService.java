@@ -1,9 +1,10 @@
 package com.anugraha.project.e_monev.apihelper;
-        import com.anugraha.project.e_monev.model.DataList;
-        import com.anugraha.project.e_monev.model.Data;
-        import com.anugraha.project.e_monev.modelprofile.Editprofilemodel;
 
-        import okhttp3.ResponseBody;
+import com.anugraha.project.e_monev.model.Data;
+import com.anugraha.project.e_monev.model.DataResponse;
+import com.anugraha.project.e_monev.modelprofile.Editprofilemodel;
+
+import okhttp3.ResponseBody;
         import retrofit2.Call;
         import retrofit2.http.Field;
         import retrofit2.http.FormUrlEncoded;
@@ -29,6 +30,9 @@ public interface BaseApiService {
     //tampilkan Cascade
     @GET("simdasync/index.php/OPDController/getCascadeRPJMD")
     Call<Data> getDataData(@Query("tahun") int tahun, @Query("assoc") int assoc);
+
+    @GET("z92xj")
+    Call<DataResponse> getData();
 
 
 }

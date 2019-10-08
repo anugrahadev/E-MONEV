@@ -17,13 +17,12 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 
-import com.anugraha.project.e_monev.adapter.SasaranRpjmdAdapter;
 import com.anugraha.project.e_monev.model.Data;
 
 import java.util.ArrayList;
 
 public class HomeAct extends AppCompatActivity {
-    private ArrayList<Data> employeeList;
+    private ArrayList<Data> dataList;
     private ProgressDialog pDialog;
     private RecyclerView recyclerView;
     EditText et_tahun;

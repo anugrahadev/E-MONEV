@@ -23,12 +23,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4.0"
-            android:id="@+id/tv_rpjmd"/>
+            android:id="@+id/nama_opd"/>
         <TextView
             android:text="15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_indikator"/>
+            android:id="@+id/tv_realisasi"/>
 
     </LinearLayout>
 

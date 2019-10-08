@@ -3,15 +3,16 @@ package com.anugraha.project.e_monev.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class DataList {
+public class DataResponse {
     @SerializedName("error")
     @Expose
     private Boolean error;
     @SerializedName("data")
     @Expose
-    private ArrayList<Data> data = null;
+    private List<Data> data = null;
+
     public Boolean getError() {
         return error;
     }
@@ -19,18 +20,13 @@ public class DataList {
     public void setError(Boolean error) {
         this.error = error;
     }
-    public ArrayList<Data> getdata() {
+
+    public List<Data> getData() {
         return data;
     }
 
-    public void setdata(ArrayList<Data> data) {
+    public void setData(List<Data> data) {
         this.data = data;
     }
 
 }
-
-
-
-
-
-
